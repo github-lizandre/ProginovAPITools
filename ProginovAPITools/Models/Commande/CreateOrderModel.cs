@@ -30,6 +30,10 @@ namespace ProginovAPITools.Models.Commande
         public string OrigineCommande { get; set; }
         [JsonProperty("mod_liv")]
         public string ModeLivraison { get; set; }
+        [JsonProperty("transpor")]
+        public int? CodeTransporteur { get; set; }
+        [JsonProperty("typ_con")]
+        public string typ_con { get; set; }
         [JsonProperty("typ_cde")]
         public int TypeCommande { get; set; }
         [JsonProperty("adr_liv")]

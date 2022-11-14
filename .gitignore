@@ -2,3 +2,13 @@
 ProginovAPITools/obj/
 
 ProginovAPITools/bin/
+
+UnitTests/obj/
+
+TestApp/bin/
+
+TestApp/obj/
+
+TestConsole/obj/
+
+.vs/

@@ -6,11 +6,16 @@ using ProginovAPITools.Models.TopVentes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ProginovAPITools.Models.Transporteurs;
 
 namespace TestConsole
 {
     class Program
     {
+        public void TestTransporteur()
+        {
+            int i = 5;
+        }
         static async System.Threading.Tasks.Task Main(string[] args)
         {
             //Adherents adherents = new Adherents();
@@ -106,18 +111,18 @@ namespace TestConsole
             //        printFolder(dossier, 1);
             //}
 
-            TopVentes topVentes = new TopVentes();
-            List<ModelMarquesTopVentes> marquesTopVentes = await topVentes.GetTopVentes();
-            ModelMarquesTopVentes marque = marquesTopVentes.First();
-            ModelFamillesTopVente famille = marque.Familles.First();
-            ModelSousFamillesTopVente sousfamille = famille.SousFamilles.First();
+            //TopVentes topVentes = new TopVentes();
+            //List<ModelMarquesTopVentes> marquesTopVentes = await topVentes.GetTopVentes();
+            //ModelMarquesTopVentes marque = marquesTopVentes.First();
+            //ModelFamillesTopVente famille = marque.Familles.First();
+            //ModelSousFamillesTopVente sousfamille = famille.SousFamilles.First();
 
-            Console.WriteLine(marque.Marque + " - " + famille.Libelle + " - " + sousfamille.Libelle);
-            List<ModelProduitTopVente> produits = await topVentes.GetProduitTopVentes(famille.Identifiant, sousfamille.Identifiant, marque.Marque);
-            foreach (ModelProduitTopVente produit in produits)
-            {
-                Console.WriteLine(produit.Reference);
-            }
+            //Console.WriteLine(marque.Marque + " - " + famille.Libelle + " - " + sousfamille.Libelle);
+            //List<ModelProduitTopVente> produits = await topVentes.GetProduitTopVentes(famille.Identifiant, sousfamille.Identifiant, marque.Marque);
+            //foreach (ModelProduitTopVente produit in produits)
+            //{
+            //    Console.WriteLine(produit.Reference);
+            //}
         }
 
 
