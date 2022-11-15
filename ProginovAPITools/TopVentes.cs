@@ -31,12 +31,16 @@ namespace ProginovAPITools
             string url = "/topvente";
             string fields = "?fields=famille,s_famille,marque_cds,cod_pro,nom_pro,refext,classement";
             string code_client = "&filter=[cod_cli|" + codcli + "]";
-            string type_classement = "MRQ";
+            string type_classement = "GEN";
+            if (marque != "")
+                type_classement = "MRQ";
             if (identifiantFamille != 0)
                 type_classement = "FA";
             if (identifiantSousFamille != 0)
                 type_classement = "SF";
-            string filters = "&filter=[marque_cds|" + marque + "]";
+            string filters = "";
+            if (marque != "")
+                filters += "&filter=[marque_cds|" + marque + "]";
             filters += "&filter=[famille|" + identifiantFamille.ToString() + "]";
             filters += "&filter=[s_famille|" + identifiantSousFamille.ToString() + "]";
             filters += "&filter=[typ_classement|" + type_classement + "]";
