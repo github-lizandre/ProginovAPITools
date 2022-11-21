@@ -64,7 +64,7 @@ namespace ProginovAPITools
         public async Task<List<OrderLignes>> GetReliquats(string code_client)
         {
             CRequest<OrderLignesRoot> request = new CRequest<OrderLignesRoot>();
-            string filter = "?filter=[cod_cli|" + code_client + "]&filter=[reliquat|yes]";
+            string filter = "?filter=[cod_cli|" + code_client + "]&filter=[reliquat|yes]&filter=[no_bl|0]&fields=refext,no_ligne,cod_pro,nom_pro,qte,px_vte,remise1,mt_ht,devise,px_net,rem_app,spe_marque_tec,no_cde";
             await request.GetRequest("/order-lines/" + filter);
             if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
