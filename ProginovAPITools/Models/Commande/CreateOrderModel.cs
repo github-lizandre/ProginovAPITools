@@ -54,8 +54,8 @@ namespace ProginovAPITools.Models.Commande
         //Depot de commande. Depot 1 pour TVI et Cedilog
         [JsonProperty("depot")]
         public int Depot { get; set; }
-        [JsonProperty("zlo3")]
-        public bool EnlevementSurPlace { get; set; }
+        //[JsonProperty("zlo3")]
+        //public bool EnlevementSurPlace { get; set; }
         [JsonProperty("zlo4")]
         public bool LivraisonLeSamediMatin { get; set; }
         [JsonProperty("edt_bp ")]
