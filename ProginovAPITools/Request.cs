@@ -97,7 +97,7 @@ namespace ProginovAPITools
 
             catch (Exception e)
             {
-                string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") - " + e.Message;
+                string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
                 m_strSearchResult = "";
@@ -119,7 +119,7 @@ namespace ProginovAPITools
 
             catch (Exception e)
             {
-                string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") - " + e.Message;
+                string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
             }
@@ -146,7 +146,7 @@ namespace ProginovAPITools
 
             catch (Exception e)
             {
-                string error = "[ERROR] PostRequest (" + strEndpoint + ") - " + e.Message;
+                string error = "[ERROR] PostRequest (" + strEndpoint + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
                 m_strSearchResult = "";
@@ -173,7 +173,7 @@ namespace ProginovAPITools
 
             catch (Exception e)
             {
-                string error = "[ERROR] PostRequest (" + strEndpoint + ") - " + e.Message;
+                string error = "[ERROR] PostRequest (" + strEndpoint + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
                 m_strSearchResult = "";
