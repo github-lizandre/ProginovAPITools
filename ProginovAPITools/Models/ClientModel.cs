@@ -24,6 +24,10 @@ namespace ProginovAPITools.Models
         [JsonProperty("siret")]
         public string Siret { get; set; }
 
+        //Sert a determiner si le client est un prospect ou nom (Valeur PRO = prospect)
+        [JsonProperty("typ_elem")]
+        public string TypeElem { get; set; }
+
         // Un client à un statut :
         //0 – RAS 
         //1 – Interdit commande
