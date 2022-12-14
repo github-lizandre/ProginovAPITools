@@ -17,6 +17,7 @@ namespace ProginovAPITools
         CHEF_DES_VENTES = 215,
         RESPONSABLE_GRAND_COMPTE = 220,
         COMMERCIAL = 225,
+        COMMERCIAL_ACHETEUR = 226,
         ASSISTANT_COMMERCIALE = 230,
         RESPONSABLE_MARKETING_COMMUNICATION = 235,
         ASSISTANT_MARKETING = 240,
@@ -56,6 +57,7 @@ namespace ProginovAPITools
             FonctionsTVI.CHEF_DES_VENTES,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
             FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.ASSISTANT_COMMERCIALE,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.ASSISTANT_MARKETING,
@@ -71,13 +73,14 @@ namespace ProginovAPITools
             FonctionsTVI.AGENTS_TVI,
             FonctionsTVI.BUSINESS
         };
-        static List<FonctionsTVI> PRODUITS_AVEC_PRIX = new List<FonctionsTVI> 
+        static List<FonctionsTVI> PRODUITS_AVEC_PRIX = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
@@ -92,6 +95,7 @@ namespace ProginovAPITools
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
@@ -104,17 +108,19 @@ namespace ProginovAPITools
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
             FonctionsTVI.COMMANDE
         };
-        static List<FonctionsTVI> COMMANDES = new List<FonctionsTVI> 
+        static List<FonctionsTVI> COMMANDES = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
             FonctionsTVI.COMPTABLE,
             FonctionsTVI.RESPONSABLE_MAGASIN,
@@ -131,6 +137,7 @@ namespace ProginovAPITools
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
             FonctionsTVI.COMPTABLE,
             FonctionsTVI.RESPONSABLE_TECHNIQUE,
@@ -149,6 +156,7 @@ namespace ProginovAPITools
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.ASSISTANT_MARKETING,
             FonctionsTVI.RESPONSABLE_MAGASIN,
@@ -161,6 +169,7 @@ namespace ProginovAPITools
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
             FonctionsTVI.HOTLINER,
@@ -168,13 +177,14 @@ namespace ProginovAPITools
             FonctionsTVI.MAGASINIER_ATELIER,
             FonctionsTVI.COMMERCIAL_SEDENTAIRE
         };
-        static List<FonctionsTVI> CARNET_ADRESSES = new List<FonctionsTVI> 
+        static List<FonctionsTVI> CARNET_ADRESSES = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
             FonctionsTVI.HOTLINER,
@@ -182,7 +192,7 @@ namespace ProginovAPITools
             FonctionsTVI.MAGASINIER_ATELIER,
             FonctionsTVI.COMMERCIAL_SEDENTAIRE
         };
-        static List<FonctionsTVI> NUMERO_HOTLINE = new List<FonctionsTVI> 
+        static List<FonctionsTVI> NUMERO_HOTLINE = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
@@ -191,6 +201,7 @@ namespace ProginovAPITools
             FonctionsTVI.CHEF_DES_VENTES,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
             FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.ASSISTANT_COMMERCIALE,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.ASSISTANT_MARKETING,
@@ -212,18 +223,19 @@ namespace ProginovAPITools
             FonctionsTVI.MAGASINIER_ATELIER,
             FonctionsTVI.COMMERCIAL_SEDENTAIRE
         };
-        static List<FonctionsTVI> PNEUS = new List<FonctionsTVI> 
+        static List<FonctionsTVI> PNEUS = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.RESPONSABLE_MAGASIN,
             FonctionsTVI.ACHETEUR,
             FonctionsTVI.COMMANDE
         };
-        static List<FonctionsTVI> OUVERTTURE_PDF_OPE = new List<FonctionsTVI> 
+        static List<FonctionsTVI> OUVERTTURE_PDF_OPE = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
@@ -232,6 +244,7 @@ namespace ProginovAPITools
             FonctionsTVI.CHEF_DES_VENTES,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
             FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.ASSISTANT_COMMERCIALE,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.ASSISTANT_MARKETING,
@@ -253,13 +266,14 @@ namespace ProginovAPITools
             FonctionsTVI.MAGASINIER_ATELIER,
             FonctionsTVI.COMMERCIAL_SEDENTAIRE
         };
-        static List<FonctionsTVI> OUVERTURE_PDF_CAHIER_MENSUEL = new List<FonctionsTVI> 
+        static List<FonctionsTVI> OUVERTURE_PDF_CAHIER_MENSUEL = new List<FonctionsTVI>
         {
             FonctionsTVI.PDG,
             FonctionsTVI.DIRECTEUR_GENERAL,
             FonctionsTVI.RESPONSABLE_DE_SITE,
             FonctionsTVI.DIRECTEUR_COMMERCIAL,
             FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
             FonctionsTVI.ASSISTANT_COMMERCIALE,
             FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
             FonctionsTVI.ASSISTANT_MARKETING,
