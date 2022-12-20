@@ -11,6 +11,8 @@ namespace ProginovAPITools.Models.Commande
         public int CodeProduit { get; set; }
         [JsonProperty("qte")]
         public int Quantite { get; set; }
+        [JsonProperty("no_ligne")]
+        public int NoLigne { get; set; }
     }
 
     public class CreateOrderModelRoot
