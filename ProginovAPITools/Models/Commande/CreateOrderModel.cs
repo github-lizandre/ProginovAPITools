@@ -58,9 +58,9 @@ namespace ProginovAPITools.Models.Commande
         //public bool EnlevementSurPlace { get; set; }
         [JsonProperty("zlo4")]
         public bool LivraisonLeSamediMatin { get; set; }
-        [JsonProperty("edt_bp ")]
+        [JsonProperty("edt_bp")]
         public string CommentairePreparation { get; set; }
-        [JsonProperty("edt_bl ")]
+        [JsonProperty("edt_bl")]
         public string CommentaireLivraison { get; set; }
         [JsonProperty("lignes")]
         public List<CreateOrderLineModel> Lignes { get; set; }
