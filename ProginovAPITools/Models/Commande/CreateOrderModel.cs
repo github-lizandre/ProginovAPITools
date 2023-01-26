@@ -66,6 +66,8 @@ namespace ProginovAPITools.Models.Commande
         public string CommentaireLivraison { get; set; }
         [JsonProperty("lignes")]
         public List<CreateOrderLineModel> Lignes { get; set; }
+        [JsonProperty("sem_liv")]
+        public int CodeCorrespondant { get; set; }
 
     }
 }
