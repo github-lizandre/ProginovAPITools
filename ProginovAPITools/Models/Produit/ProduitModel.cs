@@ -19,6 +19,8 @@ namespace ProginovAPITools.Models
         public int CodeProduit { get; set; }
         [JsonProperty("nom_pro")]
         public string NomProduit { get; set; }
+        [JsonProperty("nom_pr2")]
+        public string NomProduit2 { get; set; }
         [JsonProperty("refext")]
         public string RefExterne { get; set; }
         [JsonProperty("s_famille")]
