@@ -1,4 +1,5 @@
 ﻿using ProginovAPITools;
+using ProginovAPITools.Models.Litiges;
 using ProginovAPITools.Models.Transporteurs;
 using System;
 using System.Collections.Generic;
@@ -39,9 +40,39 @@ namespace TestApp
                 Console.WriteLine("---------------------------------------------------");
             }
         }
+
+        public static async Task TestLitiges()
+        {
+            Litiges litiges = new Litiges();
+
+            List<MotifLitigeModel> motifs;
+            List<TypeLitigeModel> types;
+
+            types = await litiges.GetListTypeLitiges();
+            foreach (TypeLitigeModel type in types)
+            {
+                Console.WriteLine("------------------------ TYPES --------------------");
+                Console.WriteLine(type.Code);
+                Console.WriteLine(type.Intitule);
+                Console.WriteLine("---------------------------------------------------");
+            }
+
+            motifs = await litiges.GetListMotifLitiges();
+            foreach (MotifLitigeModel motif in motifs)
+            {
+                Console.WriteLine("----------------------- MOTIFS ---------------------");
+                Console.WriteLine(motif.TypeLitige);
+                Console.WriteLine(motif.LibelleLong);
+                Console.WriteLine(motif.LibelleCourt);
+                Console.WriteLine(motif.CodeMotif);
+                Console.WriteLine("---------------------------------------------------");
+            }
+        }
+
+
         static async Task Main(string[] args)
         {
-           await TestTransporteur();
+           await TestLitiges();
         }
     }
 }

@@ -9,6 +9,13 @@ namespace ProginovAPITools.Models.Commande
         public List<OrderLignes> Lignes { get; set; }
     }
 
+    public class OrderHistoLignesRoot
+    {
+        [JsonProperty("histolig")]
+        public List<OrderLignes> Lignes { get; set; }
+        
+    }
+
     public class OrderLignes
     {
         [JsonProperty("cod_pro")]
@@ -47,5 +54,7 @@ namespace ProginovAPITools.Models.Commande
         public int NumeroReliquatBp { get; set; }
         [JsonProperty("spe_bldispo")]
         public bool SpelBLDispo { get; set; }
+        [JsonProperty("dat_mvt")]
+        public string Dat_mvt { get; set; }
     }
 }

@@ -33,22 +33,30 @@ namespace ProginovAPITools
     public class Correspondant
     {
         public List<CorrespondantModel> oContacts { get; set; }
+        public bool TimeOut { get; set; }
         public async Task LoadCorrespondantAsync(string strEmail)
         {
             CRequest<CorrespondantsModel> request = new CRequest<CorrespondantsModel>();
             string filter = "?filter=[internet|" + strEmail + "]";
             await request.GetRequest("/contact/customer", filter);
-            if (request.m_strSearchResult != null && request.m_strSearchResult != "")
+            if (request.m_bTimeOut)
+            {
+                oContacts = new List<CorrespondantModel>();
+                TimeOut = true;
+            }
+            else if (request.m_strSearchResult != null && request.m_strSearchResult != "")
             {
                 CorrespondantsModel contacts = request.FillCOllectionIgnoreNull();
                 if (contacts.Contacts.Count() > 0)
                 {
                     oContacts = contacts.Contacts;
+                    TimeOut = false;
                 }
 
                 else
                 {
                     oContacts = new List<CorrespondantModel>();
+                    TimeOut = false;
                 }
             }
         }
@@ -58,8 +66,13 @@ namespace ProginovAPITools
             CRequest<CorrespondantsModel> request = new CRequest<CorrespondantsModel>();
             string filter = "?filter=[fct_emp|" + Convert.ToInt32(fonction).ToString() + "]";
             await request.GetRequest("/contact/customer/", cod_tiers + filter);
-            if (request.m_strSearchResult != null && request.m_strSearchResult != "")
+            if (request.m_bTimeOut)
             {
+                TimeOut = true;
+            }
+            else if (request.m_strSearchResult != null && request.m_strSearchResult != "")
+            {
+                TimeOut = false;
                 CorrespondantsModel contacts = request.FillCOllectionIgnoreNull();
                 return contacts;
             }

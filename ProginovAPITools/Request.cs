@@ -19,8 +19,10 @@ namespace ProginovAPITools
         private readonly string m_strProxyPassword;
         private WebProxy m_oWebProxy;
         private HttpClientHandler m_httpClientHandler;
+        private int TimeOutSeconds = 100;
 
         public string m_strSearchResult { get; set; }
+        public bool m_bTimeOut { get; set; }
 
         public CRequest()
         {
@@ -29,7 +31,7 @@ namespace ProginovAPITools
             m_strProxyAddress = ConfigurationManager.AppSettings["ProxyAddress"];
             m_strProxyUserName = ConfigurationManager.AppSettings["ProxyUsername"];
             m_strProxyPassword = ConfigurationManager.AppSettings["ProxyPassword"];
-
+            m_bTimeOut = false;
             ProxyInit();
         }
 
@@ -85,22 +87,33 @@ namespace ProginovAPITools
                 if (m_httpClientHandler != null)
                 {
                     HttpClient client = new HttpClient(handler: m_httpClientHandler, disposeHandler: true);
+                    client.Timeout = TimeSpan.FromSeconds(TimeOutSeconds);
                     client.DefaultRequestHeaders.TryAddWithoutValidation("apikey", m_strApiKey);
                     HttpResponseMessage response = await client.GetAsync(m_strApiUrl + strEndpoint + strParameters);
                     if (response.IsSuccessStatusCode)
                     {
                         response.EnsureSuccessStatusCode();
                         m_strSearchResult = await response.Content.ReadAsStringAsync();
+                        m_bTimeOut = false;
                     }
                 }
             }
-
+            catch (TaskCanceledException ex) when (ex.InnerException is TimeoutException)
+            {
+                // Handle timeout.
+                string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - TimeOut";
+                Console.WriteLine(error);
+                Debug.WriteLine(error);
+                m_strSearchResult = "";
+                m_bTimeOut = true;
+            }
             catch (Exception e)
             {
                 string error = "[ERROR] GetRequest (" + strEndpoint + strParameters + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
                 m_strSearchResult = "";
+                m_bTimeOut = false;
             }
         }
 
@@ -134,6 +147,7 @@ namespace ProginovAPITools
                 {
                     HttpClient client = new HttpClient(handler: m_httpClientHandler, disposeHandler: true);
                     client.DefaultRequestHeaders.TryAddWithoutValidation("apikey", m_strApiKey);
+                    client.Timeout = TimeSpan.FromSeconds(TimeOutSeconds);
                     HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PostAsync(m_strApiUrl + strEndpoint, content);
                     if (response.IsSuccessStatusCode)
@@ -161,6 +175,7 @@ namespace ProginovAPITools
                 {
                     HttpClient client = new HttpClient(handler: m_httpClientHandler, disposeHandler: true);
                     client.DefaultRequestHeaders.TryAddWithoutValidation("apikey", m_strApiKey);
+                    client.Timeout = TimeSpan.FromSeconds(TimeOutSeconds);
                     HttpContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
                     HttpResponseMessage response = await client.PutAsync(m_strApiUrl + strEndpoint, content);
                     if (response.IsSuccessStatusCode)

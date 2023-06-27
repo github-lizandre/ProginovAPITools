@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using ProginovAPITools.Models.Commande;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -59,6 +60,34 @@ namespace ProginovAPITools
             {
                 return null;
             }
+        }
+
+        public async Task<List<OrderLignes>> GetLignesPourSAV(string code_client, DateTime? dateFrom, DateTime? dateTo)
+        {
+            DateTime now = DateTime.Now;
+            DateTime dateFromParam;
+            DateTime dateToParam;
+            if (dateFrom == null || dateFrom < now.AddYears(-1))
+                dateFromParam = now.AddYears(-1);
+            else
+                dateFromParam = (DateTime)dateFrom;
+            if (dateTo == null || dateTo < now.AddYears(-1) || dateTo < dateFrom)
+                dateToParam = now;
+            else
+                dateToParam = (DateTime)dateTo;
+
+            CRequest<OrderHistoLignesRoot> request = new CRequest<OrderHistoLignesRoot>();
+            string filter = "?filter=[cod_cf|" + code_client + "]&filter=[dat_mvt|" + dateFromParam.ToString("dd/MM/yyyy") + "," + dateToParam.ToString("dd/MM/yyyy") + "]";
+            await request.GetRequest("/history-order-lines/" + filter);
+            if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+            {
+                OrderHistoLignesRoot root = request.FillCOllectionIgnoreNull();
+                if (root.Lignes.Count > 0)
+                {
+                    return root.Lignes;
+                }
+            }
+            return new List<OrderLignes>();
         }
 
         public async Task<List<OrderLignes>> GetReliquats(string code_client)
