@@ -1,6 +1,8 @@
-﻿using ProginovAPITools.Models.TopVentes;
+﻿using Newtonsoft.Json;
+using ProginovAPITools.Models.TopVentes;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,18 +10,28 @@ namespace ProginovAPITools
 {
     public class TopVentes
     {
-        public async Task<List<ModelMarquesTopVentes>> GetTopVentes(string codcli = "0")
+        public async Task<List<ModelMarquesTopVentes>> GetTopVentes(string codcli = "0", bool createMode=false)
         {
-            CRequest<ModelMarquesTopVentesRoot> request = new CRequest<ModelMarquesTopVentesRoot>();
-            await request.GetRequest("/topvente/selection?codcli=" + codcli);
-            if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+            if (codcli == "0" && !createMode)
             {
-                ModelMarquesTopVentesRoot root = request.FillCOllectionIgnoreNull();
-                return root.Marques;
+                string path = ConfigurationManager.AppSettings["topventesjsonpath"];
+                string json = System.IO.File.ReadAllText(path);
+                List<ModelMarquesTopVentes> template = JsonConvert.DeserializeObject<List<ModelMarquesTopVentes>>(json);
+                return template;
             }
             else
             {
-                return new List<ModelMarquesTopVentes>();
+                CRequest<ModelMarquesTopVentesRoot> request = new CRequest<ModelMarquesTopVentesRoot>();
+                await request.GetRequest("/topvente/selection?codcli=" + codcli);
+                if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+                {
+                    ModelMarquesTopVentesRoot root = request.FillCOllectionIgnoreNull();
+                    return root.Marques;
+                }
+                else
+                {
+                    return new List<ModelMarquesTopVentes>();
+                }
             }
         }
 

@@ -154,16 +154,26 @@ namespace ProginovAPITools
                     {
                         response.EnsureSuccessStatusCode();
                         m_strSearchResult = await response.Content.ReadAsStringAsync();
+                        m_bTimeOut = false;
                     }
                 }
             }
-
+            catch (TaskCanceledException ex) when (ex.InnerException is TimeoutException)
+            {
+                // Handle timeout.
+                string error = "[ERROR] PostRequest (" + strEndpoint + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - TimeOut";
+                Console.WriteLine(error);
+                Debug.WriteLine(error);
+                m_strSearchResult = "";
+                m_bTimeOut = true;
+            }
             catch (Exception e)
             {
                 string error = "[ERROR] PostRequest (" + strEndpoint + ") [" + DateTime.Now.ToString("HH:mm:ss") + "] - " + e.Message;
                 Console.WriteLine(error);
                 Debug.WriteLine(error);
                 m_strSearchResult = "";
+                m_bTimeOut = false;
             }
         }
 

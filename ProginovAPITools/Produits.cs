@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using ProginovAPITools.Models;
+using ProginovAPITools.Models.Litiges;
 using ProginovAPITools.Models.Produit;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace ProginovAPITools
     public class Produits
     {
         public List<ProduitModel> oProduits { get; set; }
+        public bool TimeOut { get; set; }
         public async Task GetProductList(List<ProductRequestModel> products)
         {
             ProductRequestRootModel rootRequest = new ProductRequestRootModel();
@@ -21,13 +23,23 @@ namespace ProginovAPITools
             await request.PostRequest("/produittvi?stock=true", body);
             if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
-                ProduitRootModel root = request.FillCOllectionIgnoreNull();
-                oProduits = root.Produits;
+                if (request.m_bTimeOut)
+                {
+                    TimeOut = true;
+                    oProduits = new List<ProduitModel>();
+                }
+                else
+                {
+                    ProduitRootModel root = request.FillCOllectionIgnoreNull();
+                    oProduits = root.Produits;
+                    TimeOut = false;
+                }
             }
 
             else
             {
                 oProduits = new List<ProduitModel>();
+                TimeOut = false;
             }
         }
 

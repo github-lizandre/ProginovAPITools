@@ -77,7 +77,7 @@ namespace ProginovAPITools
                 dateToParam = (DateTime)dateTo;
 
             CRequest<OrderHistoLignesRoot> request = new CRequest<OrderHistoLignesRoot>();
-            string filter = "?filter=[cod_cf|" + code_client + "]&filter=[dat_mvt|" + dateFromParam.ToString("dd/MM/yyyy") + "," + dateToParam.ToString("dd/MM/yyyy") + "]";
+            string filter = "?filter=[cod_cf|" + code_client + "]&filter=[dat_mvt|" + dateFromParam.ToString("dd/MM/yyyy") + "," + dateToParam.ToString("dd/MM/yyyy") + "]&filter=[typ_mvt|C] ";
             await request.GetRequest("/history-order-lines/" + filter);
             if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {

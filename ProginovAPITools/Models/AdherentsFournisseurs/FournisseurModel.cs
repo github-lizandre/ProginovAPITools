@@ -32,6 +32,10 @@ namespace ProginovAPITools.Models.AdherentsFournisseurs
         //Permet de savoir si il sagit d'une agence
         [JsonProperty("spe_agence")]
         public bool SpeAgence { get; set; }
+        [JsonProperty("internet")]
+        public string Internet { get; set; }       
+        [JsonProperty("spe_mails")]
+        public string Email { get; set; }
 
     }
 }

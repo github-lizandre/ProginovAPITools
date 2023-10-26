@@ -23,6 +23,22 @@ namespace ProginovAPITools
             }
         }
 
+        public async Task<List<ContactFournisseurModel>> LoadContact(int CodeFournisseur)
+        {
+            CRequest<ContactFournisseurModelRoot> request = new CRequest<ContactFournisseurModelRoot>();
+            await request.GetRequest("/contact/supplier/" + CodeFournisseur.ToString() + "?filter=[zlo1|true]/");
+            if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+            {
+                ContactFournisseurModelRoot root = request.FillCOllectionIgnoreNull();
+                return root.ContactsFournisseurs;
+            }
+            else
+            {
+                return new List<ContactFournisseurModel>();
+            }
+            
+        }
+
         public async Task<byte[]> GetDocument(string code_fournisseur, string cle)
         {
             CRequest<string> request = new CRequest<string>();

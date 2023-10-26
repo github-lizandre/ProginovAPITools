@@ -31,7 +31,7 @@ namespace ProginovAPITools.Models.Documents
         [JsonProperty("nom")]
         public string Nom { get; set; }
         [JsonProperty("ext")]
-        public string Extentsion { get; set; }
+        public string Extension { get; set; }
         //cle du dossier dans lequel se trouve le document
         [JsonProperty("cle_dos")]
         public string CleDossier { get; set; }

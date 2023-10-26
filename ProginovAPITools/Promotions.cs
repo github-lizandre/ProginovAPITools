@@ -10,20 +10,31 @@ namespace ProginovAPITools
 {
     public class Promotions
     {
+        public bool TimeOut { get; set; }
         public async Task<List<ListePromoModel>> GetPromoList(string categorie_tarifaire)
         {
             CRequest<ListePromoModelRoot> request = new CRequest<ListePromoModelRoot>();
             await request.GetRequest("/promostvi/selection/", categorie_tarifaire);
-            if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+
+            if (request.m_bTimeOut)
+            {
+                List<ListePromoModel> listePromos = new List<ListePromoModel>();
+                TimeOut = true;
+                return listePromos;
+            }
+
+            else if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
                 ListePromoModelRoot root = request.FillCOllectionIgnoreNull();
                 List<ListePromoModel> listePromos = root.Promotions;
+                TimeOut = false;
                 return listePromos;
             }
 
             else
             {
                 List<ListePromoModel> listePromos = new List<ListePromoModel>();
+                TimeOut = false;
                 return listePromos;
             }
         }
@@ -37,16 +48,25 @@ namespace ProginovAPITools
             if (filterProducts)
                 filterNombreProduits = "&limit=30&order=stock DESC";
             await request.GetRequest("/promostvi/" + filterCategorieTarifaire + filterCodePromo + filterNombreProduits);
-            if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
+            if (request.m_bTimeOut)
+            {
+                List<ListePromoProductModel> listePromos = new List<ListePromoProductModel>();
+                TimeOut = true;
+                return listePromos;
+            }
+
+            else if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
                 ListePromoProductModelRoot root = request.FillCOllectionIgnoreNull();
                 List<ListePromoProductModel> listePromos = root.Promotions;
+                TimeOut = false;
                 return listePromos;
             }
 
             else
             {
                 List<ListePromoProductModel> listePromos = new List<ListePromoProductModel>();
+                TimeOut = false;
                 return listePromos;
             }
         }

@@ -298,6 +298,136 @@ namespace ProginovAPITools
             FonctionsTVI.SAV,
             FonctionsTVI.COMMERCIAL_SEDENTAIRE
         };
+
+        static List<FonctionsTVI> BIBLE_FOURNISSEUR_AVEC_CONDITIONS_COM = new List<FonctionsTVI>
+        {
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
+            FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
+            FonctionsTVI.RH,
+            FonctionsTVI.RESPONSABLE_MAGASIN,
+            FonctionsTVI.ACHETEUR
+        };
+
+        static List<FonctionsTVI> BIBLE_FOURNISSEUR_SANS_CONDITIONS_COM = new List<FonctionsTVI>
+        {
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.CHEF_DES_VENTES,
+            FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
+            FonctionsTVI.COMMERCIAL_AVEC_PRIX,
+            FonctionsTVI.ASSISTANT_COMMERCIALE,
+            FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
+            FonctionsTVI.ASSISTANT_MARKETING,
+            FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
+            FonctionsTVI.RH,
+            FonctionsTVI.RESPONSABLE_MAGASIN,
+            FonctionsTVI.ACHETEUR,
+            FonctionsTVI.HOTLINER,
+            FonctionsTVI.SAV,
+            FonctionsTVI.COMMERCIAL_SEDENTAIRE
+        };
+
+        static List<FonctionsTVI> ESPACE_EMPLOI = new List<FonctionsTVI>
+        { 
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.RH
+        };
+
+        static List<FonctionsTVI> DOCUMENTS = new List<FonctionsTVI>
+        {
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
+            FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
+            FonctionsTVI.ASSISTANT_ADMINISTRATIF,
+            FonctionsTVI.COMPTABLE,
+            FonctionsTVI.RH,
+            FonctionsTVI.RESPONSABLE_MAGASIN,
+            FonctionsTVI.ACHETEUR
+        };
+
+        static List<FonctionsTVI> PLANNING = new List<FonctionsTVI>
+        { 
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.CHEF_DES_VENTES,
+            FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
+            FonctionsTVI.COMMERCIAL_AVEC_PRIX,
+            FonctionsTVI.ASSISTANT_COMMERCIALE,
+            FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
+            FonctionsTVI.ASSISTANT_MARKETING,
+            FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
+            FonctionsTVI.ASSISTANT_ADMINISTRATIF,
+            FonctionsTVI.COMPTABLE,
+            FonctionsTVI.RH,
+            FonctionsTVI.CHEF_D_ATELIER,
+            FonctionsTVI.CHEF_D_EQUIPE,
+            FonctionsTVI.MECANICIEN,
+            FonctionsTVI.RECEPTIONNISTE,
+            FonctionsTVI.RESPONSABLE_TECHNIQUE,
+            FonctionsTVI.RESPONSABLE_MAGASIN,
+            FonctionsTVI.ACHETEUR,
+            FonctionsTVI.HOTLINER,
+            FonctionsTVI.COMMANDE,
+            FonctionsTVI.SAV,
+            FonctionsTVI.LOGISTICIEN,
+            FonctionsTVI.MAGASINIER_ATELIER,
+            FonctionsTVI.COMMERCIAL_SEDENTAIRE,
+            FonctionsTVI.AGENTS_TVI,
+            FonctionsTVI.BUSINESS
+        };
+
+        static List<FonctionsTVI> ESPACE_MEDIAS_PRESSE = new List<FonctionsTVI>
+        {
+            FonctionsTVI.PDG,
+            FonctionsTVI.DIRECTEUR_GENERAL,
+            FonctionsTVI.RESPONSABLE_DE_SITE,
+            FonctionsTVI.DIRECTEUR_COMMERCIAL,
+            FonctionsTVI.CHEF_DES_VENTES,
+            FonctionsTVI.RESPONSABLE_GRAND_COMPTE,
+            FonctionsTVI.COMMERCIAL,
+            FonctionsTVI.COMMERCIAL_ACHETEUR,
+            FonctionsTVI.COMMERCIAL_AVEC_PRIX,
+            FonctionsTVI.ASSISTANT_COMMERCIALE,
+            FonctionsTVI.RESPONSABLE_MARKETING_COMMUNICATION,
+            FonctionsTVI.ASSISTANT_MARKETING,
+            FonctionsTVI.RESPONSABLE_ADMINISTRATIF,
+            FonctionsTVI.ASSISTANT_ADMINISTRATIF,
+            FonctionsTVI.COMPTABLE,
+            FonctionsTVI.RH,
+            FonctionsTVI.CHEF_D_ATELIER,
+            FonctionsTVI.CHEF_D_EQUIPE,
+            FonctionsTVI.MECANICIEN,
+            FonctionsTVI.RECEPTIONNISTE,
+            FonctionsTVI.RESPONSABLE_TECHNIQUE,
+            FonctionsTVI.RESPONSABLE_MAGASIN,
+            FonctionsTVI.ACHETEUR,
+            FonctionsTVI.HOTLINER,
+            FonctionsTVI.COMMANDE,
+            FonctionsTVI.SAV,
+            FonctionsTVI.LOGISTICIEN,
+            FonctionsTVI.MAGASINIER_ATELIER,
+            FonctionsTVI.COMMERCIAL_SEDENTAIRE,
+            FonctionsTVI.AGENTS_TVI,
+            FonctionsTVI.BUSINESS
+        };
+
         public static bool HasAccessFor(string access, FonctionsTVI userFunction)
         {
             bool isAuthorized;
@@ -341,6 +471,24 @@ namespace ProginovAPITools
                     break;
                 case "OUVERTURE_PDF_CAHIER_MENSUEL":
                     isAuthorized = OUVERTURE_PDF_CAHIER_MENSUEL.Contains(userFunction);
+                    break;
+                case "BIBLE_FOURNISSEUR_AVEC_CONDITIONS_COM":
+                    isAuthorized = BIBLE_FOURNISSEUR_AVEC_CONDITIONS_COM.Contains(userFunction);
+                    break;
+                case "BIBLE_FOURNISSEUR_SANS_CONDITIONS_COM":
+                    isAuthorized = BIBLE_FOURNISSEUR_SANS_CONDITIONS_COM.Contains(userFunction);
+                    break;
+                case "ESPACE_EMPLOI":
+                    isAuthorized = ESPACE_EMPLOI.Contains(userFunction);
+                    break;
+                case "DOCUMENTS":
+                    isAuthorized = DOCUMENTS.Contains(userFunction);
+                    break;
+                case "PLANNING":
+                    isAuthorized = PLANNING.Contains(userFunction);
+                    break;
+                case "ESPACE_MEDIAS_PRESSE":
+                    isAuthorized = ESPACE_MEDIAS_PRESSE.Contains(userFunction);
                     break;
                 default:
                     isAuthorized = false;

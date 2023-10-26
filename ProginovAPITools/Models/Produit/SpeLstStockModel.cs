@@ -4,9 +4,14 @@ namespace ProginovAPITools.Models
 {
     public class SpeLstStockModel
     {
+        
         [JsonProperty("depot")]
-        int Depot { get; set; }
+        public int Depot { get; set; }
         [JsonProperty("stock")]
-        int Stock { get; set; }
+        public int Stock { get; set; }
+        [JsonProperty("nom_depot")]
+        public string NomDepot { get; set; }
+        [JsonProperty("telephone")]
+        public string Telephone { get; set; }
     }
 }
