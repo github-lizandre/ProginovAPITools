@@ -26,7 +26,7 @@ namespace ProginovAPITools
         public async Task<List<ContactFournisseurModel>> LoadContact(int CodeFournisseur)
         {
             CRequest<ContactFournisseurModelRoot> request = new CRequest<ContactFournisseurModelRoot>();
-            await request.GetRequest("/contact/supplier/" + CodeFournisseur.ToString() + "?filter=[zlo1|true]/");
+            await request.GetRequest("/contact/supplier/" + CodeFournisseur.ToString() + "?filter=[zlo1|true]");
             if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
                 ContactFournisseurModelRoot root = request.FillCOllectionIgnoreNull();

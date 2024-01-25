@@ -1,8 +1,12 @@
-﻿using ProginovAPITools;
+﻿using DataBase.Models;
+using ProginovAPITools;
+using ProginovAPITools.Models.Consignes;
 using ProginovAPITools.Models.Litiges;
 using ProginovAPITools.Models.Transporteurs;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 
 namespace TestApp
@@ -69,10 +73,36 @@ namespace TestApp
             }
         }
 
+        public static async Task TestConsignes()
+        {
+            string CodeClient = "260";
+            List<ConsigneModel> consigneModels = await Consignes.GetConsignes(CodeClient);
+            foreach (ConsigneModel consigne in consigneModels)
+            {
+                Console.WriteLine("----------------------- CONSIGNE ---------------------");
+                Console.WriteLine(consigne.Marque);
+                Console.WriteLine(consigne.Reference);
+                Console.WriteLine(consigne.NomProduit);
+                Console.WriteLine(consigne.Poids);
+                Console.WriteLine(consigne.NumeroBL);
+                Console.WriteLine(consigne.DateLivraison);
+                Console.WriteLine(consigne.NumeroFacture);
+                Console.WriteLine("------------------------------------------------------");
+            }
+        }
+
+        public static async Task TestDocConsigne()
+        {
+            byte[] document = await Consignes.GetDocument(20726, "A17244");
+            string strPath = "D:/TestConsignes/consigne.pdf";
+            if (File.Exists(strPath))
+                File.Delete(strPath);
+            File.WriteAllBytes(strPath, document);
+        }
 
         static async Task Main(string[] args)
         {
-           await TestLitiges();
+           await TestDocConsigne();
         }
     }
 }

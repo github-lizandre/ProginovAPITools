@@ -42,7 +42,7 @@ namespace ProginovAPITools.Models
         [JsonProperty("poid_brut")]
         public List<double?> PoidsBrut { get; set; }
         [JsonProperty("poid_net")]
-        public int PoidsNet { get; set; }
+        public double? PoidsNet { get; set; }
         //prix renseigné pour le pp_uv renseigné (ex : si prix de 50€ renseigné sur le produit et que pp_uv = 50 le prix à l’unite 
         //est de 1€) Dans ce cas là le multiple de vente est généralement égal au pp_uv.
         [JsonProperty("pp_uv")]

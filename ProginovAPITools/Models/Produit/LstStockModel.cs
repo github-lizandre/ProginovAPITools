@@ -10,7 +10,7 @@ namespace ProginovAPITools.Models
         [JsonProperty("nom_soc")]
         public string NomSociete { get; set; }
         [JsonProperty("stock")]
-        public int Stock { get; set; }
+        public double Stock { get; set; }
         [JsonProperty("principal")]
         public bool Principal { get; set; }
         [JsonProperty("dat_dispo")]

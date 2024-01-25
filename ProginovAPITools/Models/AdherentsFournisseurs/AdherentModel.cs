@@ -5,40 +5,37 @@ using System.Text;
 
 namespace ProginovAPITools.Models.AdherentsFournisseurs
 {
-    public class FournisseurModelRoot
+    public class AdherentModelRoot
     {
-        [JsonProperty("suppliers")]
-        public List<FournisseurModel> Fournisseurs { get; set; }
+        [JsonProperty("customers")]
+        public List<AdherentModel> Adherents { get; set; }
     }
 
-    public class FournisseurModel
+    public class AdherentModel
     {
-        [JsonProperty("cod_fou")]
-        public int CodeFournisseur { get; set; }
-        [JsonProperty("nom_fou")]
-        public string NomFournisseur { get; set; }
-        [JsonProperty("internet")]
-        public string Internet { get; set; }
-        //adresse principale
-        [JsonProperty("adresse")]
-        public List<string> Adresse { get; set; }
-        [JsonProperty("k_post2")]
-        public string CodePostal { get; set; }
-        [JsonProperty("ville")]
-        public string Ville { get; set; }
-        [JsonProperty("siret")]
-        public string SIRET { get; set; }
-        [JsonProperty("spe_num_tel")]
-        public string NumeroTelephone { get; set; }
-        [JsonProperty("spe_num_fax")]
-        public string NumeroFax { get; set; }
-        [JsonProperty("spe_facebook")]
-        public string Facebook { get; set; }
-        [JsonProperty("spe_linkedin")]
-        public string LinkedIn { get; set; }
+        [JsonProperty("cod_cli")]
+        public int CodeClient { get; set; }
+        [JsonProperty("nom_cli")]
+        public string NomClient { get; set; }
+        //Remonte la liste des adresses qui pourront etre affcihes sur le site
+        [JsonProperty("spe_lst_adresses")]
+        public List<SpeLstAdresses> SpeLstAdresses { get; set; }
+        //Remonte la liste des specificite de l'adherent
+        [JsonProperty("spe_lst_specificites")]
+        public List<SpeLstSpecificites> SpeLstSpecificites { get; set; }
         //Remonte la liste des documents GED associes a l'adherent (images, documents...)
         [JsonProperty("spe_lst_geddocs")]
         public List<SpeLstGedDocs> SpeLstGedDocs { get; set; }
+        //Permet de savoir si il sagit d'un centre
+        [JsonProperty("spe_centre")]
+        public bool SpeCentre { get; set; }
+        //Permet de savoir si il sagit d'une agence
+        [JsonProperty("spe_agence")]
+        public bool SpeAgence { get; set; }
+        [JsonProperty("internet")]
+        public string Internet { get; set; }
+        [JsonProperty("spe_mails")]
+        public string Email { get; set; }
 
     }
 }
