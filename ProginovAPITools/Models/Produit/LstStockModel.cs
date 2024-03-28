@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace ProginovAPITools.Models
@@ -10,7 +11,17 @@ namespace ProginovAPITools.Models
         [JsonProperty("nom_soc")]
         public string NomSociete { get; set; }
         [JsonProperty("stock")]
-        public double Stock { get; set; }
+        public double StockDouble;
+        public int Stock
+        {
+            get
+            {
+                int DecimalPart;
+                DecimalPart = Convert.ToInt32(Math.Truncate(StockDouble));
+                return DecimalPart;
+            }
+        }
+
         [JsonProperty("principal")]
         public bool Principal { get; set; }
         [JsonProperty("dat_dispo")]
