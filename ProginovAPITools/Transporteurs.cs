@@ -19,7 +19,7 @@ namespace ProginovAPITools
             {
                 ModelTransporteurRoot root = request.FillCOllectionIgnoreNull();
                 if (root.Transporteurs != null && root.Transporteurs.Count() > 0)
-                    root.Transporteurs = root.Transporteurs.OrderBy(e => e.Prix).ToList();
+                    root.Transporteurs = root.Transporteurs.Where(e => e != null).OrderBy(e => e.Prix).ToList();
                 return root.Transporteurs;
             }
             else
