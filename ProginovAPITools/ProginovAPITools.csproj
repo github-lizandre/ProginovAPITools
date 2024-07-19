@@ -11,7 +11,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ApiTools\ApiTools\ApiTools.csproj" />
+    <ProjectReference Include="..\..\importarticlenotecdoc\ArticleNoTecdoc\ArticleNoTecdoc.csproj" />
     <ProjectReference Include="..\..\Tools\Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ApiTools\" />
   </ItemGroup>
 
 </Project>

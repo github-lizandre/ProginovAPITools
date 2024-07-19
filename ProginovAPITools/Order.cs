@@ -26,11 +26,11 @@ namespace ProginovAPITools
             }
         }
 
-        public async Task<OrderModel> LoadSingleOrder(int num_commande)
+        public async Task<OrderModel> LoadSingleOrder(string sNum_Commande)
         {
             CRequest<OrderModelRoot> request = new CRequest<OrderModelRoot>();
-            string fields = "|refext,no_ligne,cod_pro,nom_pro,qte,px_vte,remise1,mt_ht,devise,px_net,rem_app";
-            await request.GetRequest("/order/" + num_commande.ToString() + "?lignes=true&fields=" + fields);
+            string fields = "|ref_cde,refext,no_ligne,cod_pro,nom_pro,qte,px_vte,remise1,mt_ht,devise,px_net,rem_app";
+            await request.GetRequest("/order/" + sNum_Commande + "?lignes=true&fields=" + fields);
             if (request.m_strSearchResult != "" && request.m_strSearchResult != null)
             {
                 OrderModelRoot root = request.FillCOllectionIgnoreNull();
