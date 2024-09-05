@@ -19,4 +19,13 @@
     <Folder Include="ApiTools\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ArticleNoTecdoc">
+      <HintPath>..\..\ImportArticleNoTecDoc\ArticleNoTecdoc\bin\Debug\net5.0\ArticleNoTecdoc.dll</HintPath>
+    </Reference>
+    <Reference Include="Tools">
+      <HintPath>..\..\Tools\bin\Debug\Tools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
