@@ -79,7 +79,7 @@ namespace ProginovAPITools
                         //Les dlnr tecdoc sont tous posiitifs donc on passe les non-tecdoc en negatif pour les diferencier
                         foreach (CModelCustomBrands custombrand in customBrands)
                         {
-                            if (oNoTecDocArticle.CodeMarqueProginov == custombrand.BrandName)
+                            if (oNoTecDocArticle.CodeMarqueProginov.ToUpper() == custombrand.BrandName.ToUpper())
                             {
                                 proginovDlnr = custombrand.BrandNo;
                                 break;
